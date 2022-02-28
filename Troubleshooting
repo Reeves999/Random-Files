@@ -1,0 +1,116 @@
+Info Look Protocol Step One:
+    * Look for the easiest option for info
+    
+
+Tools:::
+
+  * memtest 86: Checks the health of the ram.
+  * Valgrind: A very powerful tool that can tell us if the code is doing any invalid operations, no matter if it crashes or not
+
+  *drmemory: is a other tool for invalid operations problems
+  j
+
+Concept:::
+
+  * If the error is not able to be reproduce on a other computer. The configeraion is at fault. That is very inportant.
+  * The can be oprating system or the hardware of the device.
+  * The check of the Hard drive and ram goes thourgh well and the system is still experiencing problems. The best thing to do is check the OS. 
+  * If The thing is simple to fix in the OS. Then fix it. The problem should not take all day. Just reinstall the OS. 
+  * The fail point for the invalid memory is when the program tries to access the memory the pointer points to, that will lead to a app crash. The most Common programming errors that lead to segementaion faults or segfaults include. (forgetting to  initialize a variable, trying to access a list element outside of the valid range, giving and taking memory without thinking head, trying to write data and requesting more memory.) 
+
+Log files:::
+  * Linux
+    - strace to view the program
+    - /var/log/ file: stores the log files
+    ----------------------------------------
+    |  The Configuration files are stored on 
+    | in the dir /etc/.
+    |  Opinion-- 'I notice that the video add the vi as a command for the file.
+    | 
+  * Mac
+    - Console app: to look at the stored log files
+    - dtruss: to view the program 
+  * Windows
+    - Windows Event Viewer: look at the stored log files
+    - Process Monitor: to look at the stored log files
+
+  %% Steps for finding out! 
+    - Look at all logs
+    - figure out what change
+    - trace the system
+    - library calls
+    - create a reproduction case(Small if possible)
+    
+  tips:::
+    * To fix problems depend on whether we can fix the code or not
+    
+Next Video: "What to do when you can't fix the program?"
+
+
+  Definition:
+   * Core files == Store all the information related to the crash so that we, or someone else, can debug what's going on
+   * ulimit - c unlimited : sets up the file to catch the dumped core. Just run the code right after that. You now have a core file
+   * ls -l core: for accessing the core file on linux
+   * gdb -c coreo: Gdb is a debuger: use the core as a argument; Finds the executable that crashed the system
+   * backtrace: command to see the code that is fault
+   * The up
+   * list will list the code
+   print {Varible}
+   * The very inport one is pdb3::: This is the one per line debuger. This is useful. 
+     The "continue" plays the whole script to find out what is the problem.
+     The pdb is going to be on the left. This indectes that we can use the functions in the code to see what they are. 
+     Byte order mark or BOM: used in utf-16 format to tell the difference between a file stored using little-endian and the big-endian
+   The need to comment and talk to others to list past problems and future remides
+   Clear instarctings for the persons who are involed in the problem with clear resolve and time eta's
+   The bigger the problem, add more people and delecte tasks. Not to many though
+   The knight will be the communication lead. takes on the heat from the enemy
+   The commander veiws the big picture and decides what is the best use of the available resources aka Incident commander/ incident controller
+  The rooot cause 
+  how you diagnosed the problem and found that root cause?
+  What you did to fix the issue?
+  What you did to fix the issue and what needs to be done?
+What is a Postmortem?
+ It is a format for the final understanding for the problem. This can be use for my learning pt. 
+ * What caused the issue?
+ * What the impact of the issue was?
+ * How it got diagnosed?
+ * The short-term remediation you applied?
+ * The long-term remediation you recommmend?
+ Showing what went well during the problem helps.
+ The postmortem should not contion people's names or refere to them. 
+
+   * Accessing Invalid Memory == that the process tried to access a portion of the system's memory that wasn't assigned to it.
+   * Pointers == The variable that stores memory addresses 
+   * Wrapper:
+     - function or program that provides a compatibility layer between two functions or programs, so they can work well together
+   * Watchdog
+     - A process that checks whether a program is running and, when it is not, starts the program again.
+     - The script of the function will check if the system is running. This will be in the background running. No doudt that the system will be face the problem again, but make sure the system is on 
+   * Container:
+     - Allow the application to run in its own environment without interfering with the rest of the system.
+   * netstat:
+     - network connections info depends on flags passed
+       | -n = numerical addresses instead of resolving the host names
+       | -l = checks the sockets that are listening for the connections
+       | -p = prints process id and the name which each socket belongs to
+      Logger moudle allows access to print statements for errors.
+
+  Work Rounds:
+     - CW to change word
+     - C enter incert mode
+     - ct (value)
+   
+   Application Developers:
+   ; Send report to them with a reproduce case. That is most useful.
+   1. What were you trying to do?
+   2. What were the steps you followed?
+   3. What did you expect to happen?
+
+
+Server Error is 500 Internal Server Error
+
+
+  Commands; 
+  sudo service {filename} reload: This will restart the program with super acesses.
+  chown: changes the owner of the file
+
